@@ -6,3 +6,5 @@
 /hookJit/Win32
 /hookJit/hookJitPrj.VC.db
 /hookJit/*.opendb
+/hookJit/ipch
+/hookJit/x64
