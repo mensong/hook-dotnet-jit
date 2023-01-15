@@ -1,3 +1,8 @@
 /AppCallDll/.vs
 /hookJit/.vs
 /AppCallDll/*.suo
+/AppCallDll/AppCallDll/bin
+/AppCallDll/AppCallDll/obj
+/hookJit/Win32
+/hookJit/hookJitPrj.VC.db
+/hookJit/*.opendb
