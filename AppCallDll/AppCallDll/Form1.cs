@@ -23,7 +23,7 @@ namespace AppCallDll
         }
         private string doAddFun(int m)
         {
-            int n = 50;
+            int n = 10;
             n = n * m;
             return n.ToString();
         }

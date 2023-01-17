@@ -8,3 +8,6 @@
 /hookJit/*.opendb
 /hookJit/ipch
 /hookJit/x64
+/AppCallDll/*.opensdf
+/AppCallDll/ipch
+/AppCallDll/*.sdf
