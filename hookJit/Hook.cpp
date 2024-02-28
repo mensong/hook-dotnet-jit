@@ -94,7 +94,7 @@ struct JIT
 	compileMethod_def compileMethod;
 };
 
-compileMethod_def compileMethod;
+compileMethod_def original_compileMethod;
 
 int __stdcall my_compileMethod(ULONG_PTR classthis, ICorJitInfo *comp,
 							   CORINFO_METHOD_INFO *info, unsigned flags,         
@@ -168,7 +168,7 @@ extern "C" __declspec(dllexport) void HookJIT()
 		MessageBoxA(0, "VirtualProtect faild", "getjit", 0);
 		return;
 	}
-	compileMethod = pJit->compileMethod;
+	original_compileMethod = pJit->compileMethod;
 	pJit->compileMethod = &my_compileMethod;
 	VirtualProtect(pJit, sizeof(ULONG_PTR), OldProtect, &OldProtect);
 	bHooked = TRUE;
@@ -226,13 +226,19 @@ int __stdcall my_compileMethod(ULONG_PTR classthis, ICorJitInfo *comp,
 		if (itFinder != g_MyILCodes.end())
 		{
 			MessageBoxA(0, szMethodName, szClassName, 0);
-			info->ILCode = itFinder->second.data();
+			if (info->ILCodeSize == itFinder->second.size())
+			{
+				info->ILCode = itFinder->second.data();
+			}
+			else
+			{
+				MessageBoxA(0, ("Custom ILCode size must be " + std::to_string(info->ILCodeSize)).c_str(), "Error", 0);
+			}
 		}
 	}
 
 	// call original method
-
-	int nRet = compileMethod(classthis, comp, info, flags, nativeEntry, nativeSizeOfCode);
+	int nRet = original_compileMethod(classthis, comp, info, flags, nativeEntry, nativeSizeOfCode);
 
 	return nRet;
 }
