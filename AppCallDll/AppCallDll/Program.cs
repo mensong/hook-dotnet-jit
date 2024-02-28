@@ -17,13 +17,9 @@ namespace AppCallDll
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //try
-            //{
+            //这里直接在宿主上调用，实际上这里应该使用注入的方式执行的
             HookJIT();
-            //}
-            //catch { }
+
             Application.Run(new Form1());
         }
     }

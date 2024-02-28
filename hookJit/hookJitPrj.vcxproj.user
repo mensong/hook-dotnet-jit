@@ -6,7 +6,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LocalDebuggerCommand>C:\Users\lims62\Desktop\hookjit_rzh\AppCallDll\AppCallDll\bin\x64\Debug\AppCallDll.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommand>$(OutDir)\AppCallDll.exe</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>$(OutDir)</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>

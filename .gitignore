@@ -11,3 +11,4 @@
 /AppCallDll/*.opensdf
 /AppCallDll/ipch
 /AppCallDll/*.sdf
+/hookJit/*.sdf

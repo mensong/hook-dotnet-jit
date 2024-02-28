@@ -173,7 +173,7 @@ extern "C" __declspec(dllexport) void HookJIT()
 	VirtualProtect(pJit, sizeof(ULONG_PTR), OldProtect, &OldProtect);
 	bHooked = TRUE;
 
-	MessageBoxA(0, "ok", "getjit", 0);	
+	MessageBoxA(0, "HookJIT setup ok", "getjit", 0);	
 
 }
 
